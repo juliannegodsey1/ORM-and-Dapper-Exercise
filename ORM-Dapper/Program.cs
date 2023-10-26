@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using System.Data;
 
 
+
 namespace ORM_Dapper
 {
     public class Program
@@ -20,11 +21,15 @@ namespace ORM_Dapper
 
             var repo = new DapperDepartmentRepository(conn);
 
+            repo.InsertDepartment("John's New Department");
+
            var departments = repo.GetAllDepartments();
 
             foreach (var dept in departments)
             {
                 Console.WriteLine($"{dept.DepartmentID} {dept.Name}");
+                Console.WriteLine();
+                Console.WriteLine();
             }
         }
     }
